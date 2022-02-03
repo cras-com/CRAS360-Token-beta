@@ -154,7 +154,7 @@ abstract contract Ownable is Context {
     address private _owner;
     event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
     constructor () {
-        _owner = 0xE69Ac38Cd6DA0EA9a540B47399C430131216Ced7;
+        _owner = 0xC030ea0FF9AAc9A660CAb49eAF17B4aBF0fcef5e;
         emit OwnershipTransferred(address(0), _owner);
     }
     function owner() public view virtual returns (address) {
@@ -362,7 +362,7 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
     ) external;
 }
 
-contract COMF is Context, IERC20, Ownable {
+contract CRASToken is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
     mapping (address => uint256) private _rOwned;
@@ -371,19 +371,19 @@ contract COMF is Context, IERC20, Ownable {
     mapping (address => bool) private _isExcludedFromFee;
     mapping (address => bool) private _isExcluded;
     address[] private _excluded;
-    address private _developmentWalletAddress = 0xE69Ac38Cd6DA0EA9a540B47399C430131216Ced7;
+    address private _developmentWalletAddress = 0x3f1aa08C00519CAC3AD75AAaE13d70e0eB0caeD5;
     uint256 private constant MAX = ~uint256(0);
     uint256 private _tTotal = 1000000000000 * 10**18;
     uint256 private _rTotal = (MAX - (MAX % _tTotal));
     uint256 private _tFeeTotal;
-    string private _name = "Comfy Rocket";
-    string private _symbol = "COMF";
+    string private _name = "CRASToken";
+    string private _symbol = "CRAS";
     uint8 private _decimals = 18;
-    uint256 public _taxFee = 20;
+    uint256 public _taxFee = 50;
     uint256 private _previousTaxFee = _taxFee;
-    uint256 public _developmentFee = 10;
+    uint256 public _developmentFee = 20;
     uint256 private _previousDevelopmentFee = _developmentFee;
-    uint256 public _liquidityFee = 50;
+    uint256 public _liquidityFee = 30;
     uint256 private _previousLiquidityFee = _liquidityFee;
 
     IUniswapV2Router02 public immutable uniswapV2Router;
